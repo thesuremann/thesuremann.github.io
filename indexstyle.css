@@ -1,0 +1,125 @@
+:root {
+    --bg: #101010;
+    --card: #080808;
+    --red: #ff0000;
+    --red-glow: rgba(255, 0, 0, 0.55);
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    background-color: var(--bg);
+    background-image: radial-gradient(ellipse at 50% 0%, rgba(255, 42, 42, 0.18), transparent 60%);
+    background-repeat: no-repeat;
+    font-family: 'Ubuntu', Helvetica, Arial, sans-serif;
+    color: var(--red);
+}
+
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+main {
+    width: 100%;
+    max-width: 850px;
+    padding-top: 8vh;
+}
+
+.title {
+    margin: 0 0 40px;
+    text-align: center;
+    font-size: clamp(3rem, 14vw, 7rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    color: var(--red);
+    text-shadow: 0 0 8px var(--red-glow), 0 0 40px var(--red-glow);
+    animation: neon-on 1.2s steps(1, end) 1;
+}
+
+@keyframes neon-on {
+    0%   { opacity: 0; }
+    10%  { opacity: 1; }
+    20%  { opacity: 0.2; }
+    30%  { opacity: 1; }
+    40%  { opacity: 0.4; }
+    50%  { opacity: 1; }
+    60% { opacity: 1; }
+    70%   { opacity: 0; }
+    80%  { opacity: 1; }
+    90%  { opacity: 0.2; }
+    100%  { opacity: 1; }
+}
+
+.card {
+    background-color: var(--card);
+    border: 2px solid var(--red);
+    border-radius: 10px;
+    padding: 32px 24px;
+    text-align: center;
+    box-shadow: 0 0 24px rgba(255, 42, 42, 0.25), inset 0 0 24px rgba(255, 42, 42, 0.08);
+}
+
+.card p {
+    margin: 0 auto 28px;
+    max-width: 45ch;
+    font-size: 1.25rem;
+    line-height: 1.6;
+}
+
+.btn {
+    display: block;
+    width: 90%;
+    margin: 0 auto;
+    padding: 12px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--red);
+    border: 3px solid var(--red);
+    border-radius: 100px;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    transition: color 0.25s, box-shadow 0.25s;
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--red);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.25s ease-out;
+    z-index: -1;
+}
+
+.btn:hover,
+.btn:focus-visible {
+    color: #000;
+    box-shadow: 0 0 20px var(--red-glow);
+}
+
+.btn:hover::before,
+.btn:focus-visible::before {
+    transform: scaleX(1);
+}
+
+.btn:focus-visible {
+    outline: 3px solid #fff;
+    outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .title { animation: none; }
+    .btn, .btn::before { transition: none; }
+}
