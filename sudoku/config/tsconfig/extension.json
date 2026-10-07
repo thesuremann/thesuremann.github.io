@@ -1,0 +1,19 @@
+{
+  "extends": "./base.json",
+  "compilerOptions": {
+    "module": "ES2022",
+    "moduleResolution": "Bundler",
+    "lib": [
+      "ES2022",
+      "WebWorker"
+    ],
+    "rootDir": "../../src-extension",
+    "outDir": "../../.build/extension",
+    "types": [
+      "chrome"
+    ]
+  },
+  "include": [
+    "../../src-extension/background.ts"
+  ]
+}

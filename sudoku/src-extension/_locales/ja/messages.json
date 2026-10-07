@@ -1,0 +1,14 @@
+{
+  "extensionName": {
+    "message": "ワンクリック数独"
+  },
+  "extensionShortName": {
+    "message": "数独"
+  },
+  "extensionDescription": {
+    "message": "ツールバーからワンクリックで起動し、オフラインで数独を遊べます。"
+  },
+  "extensionActionTitle": {
+    "message": "「ワンクリック数独」を開く"
+  }
+}
